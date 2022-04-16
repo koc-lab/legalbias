@@ -30,7 +30,7 @@ for i in range(len(embeddings)):
 
 for embedding in embeddings:
     # load google news word2vec
-    E = WordEmbedding("embeddings/"+embedding+".txt")
+    E = WordEmbedding("../embeddings/"+embedding+".txt")
     
     # load professions
     crimes = load_crimes()
@@ -57,14 +57,14 @@ for embedding in embeddings:
     df.to_csv(embedding+"_word_projections_biased.csv")
     
     # Lets load some gender related word lists to help us with debiasing
-    with open('./data/definitional_pairs.json', "r") as f:
+    with open('../data/definitional_pairs.json', "r") as f:
         defs = json.load(f)
     # print("definitional", defs)
     
-    with open('./data/equalize_pairs.json', "r") as f:
+    with open('../data/equalize_pairs.json', "r") as f:
         equalize_pairs = json.load(f)
     
-    with open('./data/'+embedding+'_gender_specific_full.json', "r") as f:
+    with open('../data/'+embedding+'_gender_specific_full.json', "r") as f:
         gender_specific_words = json.load(f)
     # print("gender specific", len(gender_specific_words), gender_specific_words[:10])
     
